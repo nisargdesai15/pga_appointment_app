@@ -135,6 +135,7 @@ class _ScheduleAppointmentPageState extends State<ScheduleAppointmentPage>  {
                     child: ElevatedButton(
                       child: Text(
                         "Schedule Appointment",
+                        style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () async {
 
