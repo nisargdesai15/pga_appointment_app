@@ -58,7 +58,7 @@ class _ScheduleAppointmentPageState extends State<ScheduleAppointmentPage>  {
                   future: PGAAppointmentDataService().getAvailabilityData(),
                   builder: (context, snapshot) {
                     print(snapshot.connectionState);
-                    if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
                       print(_selected);
                       _selected = null;
                       print(snapshot.data.availability[0]);
@@ -82,7 +82,7 @@ class _ScheduleAppointmentPageState extends State<ScheduleAppointmentPage>  {
                         }).toList(),
                       );
                     } else if (snapshot.hasError) {
-                      return Text("${snapshot.error}");
+                      return Text("getting Error to get TimeSlots",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20));
                     }
                     return CircularProgressIndicator();
                   },
